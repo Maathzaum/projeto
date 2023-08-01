@@ -60,6 +60,11 @@ body * {
   border-radius: 9px;
 }
 
+.light #profile img {
+  border: 3px solid rgba(0, 0, 0, 0.5);
+  border-radius: 9px;
+}
+
 #profile p {
   font-weight: 500;
   line-height: 24px;
@@ -86,13 +91,17 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slide-back 0.2s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
 }
 
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+}
 #switch span {
   display: block;
   width: 64px;
@@ -180,5 +189,25 @@ footer {
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* Animações */
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
